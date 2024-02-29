@@ -1,11 +1,11 @@
 ---
-project: 'fchem_db'
-summary: 'Handle substances properties databases'
+project: forsus
+summary: Handle substances properties databases
 project_github: 'https://github.com/ipqa-research/fchem_db'
-author: 'jscilipotti'
-author_description: 'PhD in Chemical Engineering'
-email: ''
-github: ''
+author: jscilipoti
+author_description: PhD in Chemical Engineering
+email:
+github:
 src_dir: src
 exclude_dir: test doc example
 output_dir: doc/ford_site
