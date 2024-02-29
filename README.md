@@ -1,1 +1,3 @@
-# fchem_db
+# forsus
+
+Pure chemical compounds database and general API.
