@@ -8,8 +8,5 @@ program main
   sus(2) = Substance("n-hexane")
   sus(1) = Substance("1-butanol")
 
-  ! Including an optional path
-  sus(1) = Substance("1-butanol", path="mis/datitos/tan/aca")
-
   print *, sus%critical%critical_temperature%value
 end program
