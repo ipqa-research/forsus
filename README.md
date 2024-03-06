@@ -15,20 +15,22 @@ file directory. [data/json](data/json) is the directory that the library uses by
 default.
 
 ```fortran
-use forsus
+program main
+    use forsus
 
-type(Substance) :: s
+    type(Substance) :: s
 
-! This will use the default path
-s = Substance("1-butanol")
+    ! This will use the default path
+    s = Substance("1-butanol")
 
-! This will use the defined path
-forsus_dir = "my/json/files"
-s = Substance("1-butanol")
+    ! This will use the defined path
+    forsus_dir = "my/json/files"
+    s = Substance("1-butanol")
 
-! It is also possible to use a custom path
-sus = Substance("1-butanol", path="the/json/is/here")
+    ! It is also possible to use a custom path
+    sus = Substance("1-butanol", path="the/json/is/here")
 
-! Show the critical temperature
-print *, sus%critical%critical_temperature%value
+    ! Show the critical temperature
+    print *, sus%critical%critical_temperature%value
+end program
 ```
