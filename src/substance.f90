@@ -12,7 +12,6 @@ module forsus_substance
         !! Substance by it's name (which should be the same as the filename)
         !! will find all the properties and set them up properly.
         !! 
-        !!
         !! ```fortran
         !! use forsus, only: Substance, forsus_dir
         !! type(Substance) :: sus
@@ -25,7 +24,6 @@ module forsus_substance
         !! 
         !! ! It is also possible to use a custom path
         !! sus = Substance("1-butanol", path="the/json/is/here")
-        !! 
         !!
         !! print *, sus%critical%critical_temperature%value
         !! ```
