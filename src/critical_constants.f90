@@ -1,5 +1,5 @@
-module fbchem_db_critical_constants
-   use fchem_db_property
+module forsus_critical_constants
+   use forsus_property
    implicit none
    
    type :: CriticalConstants

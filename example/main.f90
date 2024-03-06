@@ -1,12 +1,13 @@
 program main
-  use fchem_db_constants, only: fchem_db_dir
-  use fchem_db, only: Substance
+  use forsus_constants, only: forsus_dir
+  use forsus, only: Substance
+
   type(Substance) :: sus(2)
 
-  fchem_db_dir = "data/json"
+  forsus_dir = "data/json"
 
-  sus(2) = Substance("n-hexane")
   sus(1) = Substance("1-butanol")
+  sus(2) = Substance("ethanol")
 
   print *, sus%critical%critical_temperature%value
 end program
