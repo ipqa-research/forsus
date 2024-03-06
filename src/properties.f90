@@ -1,5 +1,5 @@
-module fchem_db_property
-   use fchem_db_constants, only: pr, fchem_db_dir, fchem_db_default_dir
+module forsus_property
+   use forsus_constants, only: pr, forsus_dir, forsus_default_dir
    use json_module, only: json_file
    implicit none
 
@@ -49,10 +49,10 @@ contains
       if (present(path)) then
          call json%load_file(path//"/"//json_str)
       else
-         if (allocated(fchem_db_dir)) then
-            call json%load_file(fchem_db_dir//"/"//json_str)
+         if (allocated(forsus_dir)) then
+            call json%load_file(forsus_dir//"/"//json_str)
          else
-            call json%load_file(fchem_db_default_dir//"/"//json_str)
+            call json%load_file(forsus_default_dir//"/"//json_str)
          end if
       end if
 
