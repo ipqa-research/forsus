@@ -4,6 +4,8 @@ module forsus_properties_base
 
    type, abstract :: Property
       !! Property base type
+      !!
+      !! Define the basics that a property can have.
       character(len=:), allocatable :: name !! Property's name
       character(len=:), allocatable :: units !! Units
    contains

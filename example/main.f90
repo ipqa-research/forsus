@@ -1,6 +1,5 @@
 program main
-  use forsus_constants, only: forsus_dir
-  use forsus, only: Substance
+  use forsus, only: Substance, forsus_dir
 
   type(Substance) :: sus(2)
 
