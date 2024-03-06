@@ -334,14 +334,25 @@ can be.
 <a id="ln-14" name="ln-14" href="#ln-14"></a>
 <a id="ln-15" name="ln-15" href="#ln-15"></a><span class="k">   abstract interface</span>
 <a id="ln-16" name="ln-16" href="#ln-16"></a><span class="k">      subroutine </span><span class="n">abs_from_json</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">)</span>
-<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">         </span><span class="k">import </span><span class="n">Property</span>
-<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">         </span><span class="k">class</span><span class="p">(</span><span class="n">Property</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
-<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span>
-<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">json_str</span>
-<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">path</span>
-<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">      </span><span class="k">end subroutine</span>
-<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="k">   end interface</span>
-<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="k">end module</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">         </span><span class="c">!! How a Property reader routine is espected to work.</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">         </span><span class="c">!!</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">         </span><span class="c">!! A Property should be setted up by providing it&#39;s name and a </span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">         </span><span class="c">!! `json` file relative (or absolute) path. The Property instance</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">         </span><span class="c">!! name should be setted up inside the subroutine and later on</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">         </span><span class="c">!! the Property value(s) should be read from the `json` file.</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">         </span><span class="c">!! </span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">         </span><span class="c">!! Inside the subroutine the default `forsus_dir` path should be used</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">         </span><span class="c">!! but it should also be possible to use an optional custom path.</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="w">         </span><span class="c">!!</span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">         </span><span class="c">!! An example implementation can be seen at [scalar_from_json(subroutine)]</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">         </span><span class="k">import </span><span class="n">Property</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">         </span><span class="k">class</span><span class="p">(</span><span class="n">Property</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="c">!! Property</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="c">!! Property&#39;s name (`json` key)</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">json_str</span><span class="w"> </span><span class="c">!! `json` file path</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="c">!! Optional database path</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="w">      </span><span class="k">end subroutine</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="k">   end interface</span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="k">end module</span>
 </pre></div>
 
       </section>
@@ -360,7 +371,7 @@ can be.
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-06 19:09              </p>
+ on 2024-03-06 19:16              </p>
           </div>
         </div>
         <br>

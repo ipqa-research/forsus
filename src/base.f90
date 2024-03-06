@@ -14,11 +14,22 @@ module forsus_properties_base
 
    abstract interface
       subroutine abs_from_json(self, name, json_str, path)
+         !! How a Property reader routine is espected to work.
+         !!
+         !! A Property should be setted up by providing it's name and a 
+         !! `json` file relative (or absolute) path. The Property instance
+         !! name should be setted up inside the subroutine and later on
+         !! the Property value(s) should be read from the `json` file.
+         !! 
+         !! Inside the subroutine the default `forsus_dir` path should be used
+         !! but it should also be possible to use an optional custom path.
+         !!
+         !! An example implementation can be seen at [scalar_from_json(subroutine)]
          import Property
-         class(Property) :: self
-         character(len=*), intent(in) :: name
-         character(len=*), intent(in) :: json_str
-         character(len=*), optional, intent(in) :: path
+         class(Property) :: self !! Property
+         character(len=*), intent(in) :: name !! Property's name (`json` key)
+         character(len=*), intent(in) :: json_str !! `json` file path
+         character(len=*), optional, intent(in) :: path !! Optional database path
       end subroutine
    end interface
 end module
