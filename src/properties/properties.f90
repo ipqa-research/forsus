@@ -1,5 +1,5 @@
 module forsus_properties
-    use forsus_properties_base, only: Property
+    !! Possible properties defined in the package.
     use forsus_properties_scalar, only: ScalarProperty
     use forsus_properties_critical_constants, only: CriticalConstants
 end module
