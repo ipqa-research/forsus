@@ -1,5 +1,5 @@
 module forsus_substance
-    use forsus_properties, only: CriticalConstants
+    use forsus_properties, only: ScalarProperty, CriticalConstants
     implicit none
 
     type :: Substance
@@ -59,8 +59,9 @@ module forsus_substance
         !! ```
         character(len=:), allocatable :: name 
             !! Substance name
-        type(CriticalConstants) :: critical 
+        type(CriticalConstants) :: critical
             !! Critical constants
+        type(ScalarProperty) :: parachor
     end type
 
     ! Setting this interface allows to use `init_json` as the object init
@@ -86,6 +87,7 @@ contains
 
         init_json%name = trim(name)
         if (.not. present(only)) then
+            call init_json%parachor%from_json("Parachor", init_json%name//".json", path)
             call init_json%critical%from_json(init_json%name//".json", path)
         else
         do i=1,size(only)
