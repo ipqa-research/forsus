@@ -29,7 +29,8 @@ module forsus_substance
         !! 
         !! ! Define your substance
         !! sus = Substance("1-butanol")
-        !!  ```
+        !! ```
+        !!
         !! ### Using a custom path for a single substance
         !! 
         !! ```fortran
