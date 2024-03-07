@@ -78,7 +78,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="16.1% of total for modules and submodules.">18 statements</a>
+                 title="23.6% of total for modules and submodules.">29 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -513,7 +513,7 @@ modules which it uses.
     <ul class="list-group">
           <li class="list-group-item">
                 <h3>
-    public  function <a href='../proc/init_json.html'>init_json</a>(name, path)  
+    public  function <a href='../proc/init_json.html'>init_json</a>(name, path, only)  
 
     </h3>
     
@@ -533,7 +533,7 @@ It is also optional to use a custom path for the component.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-name~2"></span>
+              <span class="anchor" id="variable-name~5"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -548,7 +548,7 @@ It is also optional to use a custom path for the component.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-path"></span>
+              <span class="anchor" id="variable-path~4"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -559,6 +559,21 @@ It is also optional to use a custom path for the component.</p>
             <td><strong>path</strong></td>
             <td>
 <p>Optional database path</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-only"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>only</strong>(:)</td>
+            <td>
+<p>Only extract this parameters, the options are:</p><a href="../proc/init_json.html#variable-only" class="pull-right"><emph>Read more&hellip;</emph></a>
             </td>
         </tr>
     </tbody>
@@ -622,7 +637,7 @@ It is also optional to use a custom path for the component.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-name"></span>
+              <span class="anchor" id="variable-name~4"></span>
               character(len=:),
             </td>
               <td>public,</td>
@@ -652,7 +667,7 @@ It is also optional to use a custom path for the component.</p>
                     
                     function
                     <strong><a href='/home/runner/work/forsus/forsus/doc/ford_site/proc/init_json.html'>init_json</a></strong>
-                    (name, path)
+                    (name, path, only)
                   </td>
                   <td><p>Initialize a Substance object from a json file, provided it&rsquo;s name.
 It is also optional to use a custom path for the component.</p></td>
@@ -670,7 +685,7 @@ It is also optional to use a custom path for the component.</p></td>
         <section>
           <h2>Functions</h2>
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-init_json"></span> <h3>public  function <a href='../proc/init_json.html'>init_json</a>(name, path)  
+    <div class="card-header codesum"><span class="anchor" id="proc-init_json"></span> <h3>public  function <a href='../proc/init_json.html'>init_json</a>(name, path, only)  
 </h3></div>
     <div class="card-body">
           
@@ -690,7 +705,7 @@ It is also optional to use a custom path for the component.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-name~2"></span>
+              <span class="anchor" id="variable-name~5"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -705,7 +720,7 @@ It is also optional to use a custom path for the component.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-path"></span>
+              <span class="anchor" id="variable-path~4"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -716,6 +731,21 @@ It is also optional to use a custom path for the component.</p>
             <td><strong>path</strong></td>
             <td>
 <p>Optional database path</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-only"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>only</strong>(:)</td>
+            <td>
+<p>Only extract this parameters, the options are:</p><a href="../proc/init_json.html#variable-only" class="pull-right"><emph>Read more&hellip;</emph></a>
             </td>
         </tr>
     </tbody>
@@ -751,7 +781,7 @@ It is also optional to use a custom path for the component.</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-06 19:16              </p>
+ on 2024-03-07 18:48              </p>
           </div>
         </div>
         <br>
