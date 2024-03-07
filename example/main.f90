@@ -16,4 +16,5 @@ program main
   sus(2) = Substance("ethanol", only=only_this)
 
   print *, sus%critical%critical_temperature%value
+  print *, sus%parachor%value
 end program
