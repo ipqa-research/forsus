@@ -17,6 +17,10 @@ module forsus_substance
         !! In this case you it is possible to extract only the desired parameters
         !! with the `only` argument.
         !!
+        !! Strings for using `only` are:
+        !! 
+        !! - "critical": Critical constants \(P_c\), \(T_c\), \(\omega\)
+        !!
         !! ## Examples
         !! 
         !! ### Default behaviour
