@@ -12,9 +12,14 @@ program main
   sus(1) = Substance("1-butanol")
   sus(2) = Substance("ethanol", path="data/json")
 
-  sus(2) = Substance("ethanol", only=["critical"])
-  sus(2) = Substance("ethanol", only=only_this)
+  ! sus(2) = Substance("ethanol", only=["critical"])
+  ! sus(2) = Substance("ethanol", only=only_this)
 
   print *, sus%critical%critical_temperature%value
   print *, sus%parachor%value
+
+  print *, sus(1)%critical%critical_pressure%units
+  print *, sus(1)%critical%critical_temperature%units
+  print *, sus(1)%critical%critical_volume%units
+
 end program

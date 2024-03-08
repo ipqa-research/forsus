@@ -62,6 +62,9 @@ module forsus_substance
         type(CriticalConstants) :: critical
             !! Critical constants
         type(ScalarProperty) :: parachor
+            !! Parachor
+        type(ScalarProperty) :: mathiascopeman(3)
+            !! Mathias Copeman \(\alpha\) function parameters
     end type
 
     ! Setting this interface allows to use `init_json` as the object init
@@ -88,6 +91,9 @@ contains
         init_json%name = trim(name)
         if (.not. present(only)) then
             call init_json%parachor%from_json("Parachor", init_json%name//".json", path)
+            call init_json%mathiascopeman(1)%from_json("MatthiasCopemanC1", init_json%name//".json", path)
+            call init_json%mathiascopeman(2)%from_json("MatthiasCopemanC2", init_json%name//".json", path)
+            call init_json%mathiascopeman(3)%from_json("MatthiasCopemanC3", init_json%name//".json", path)
             call init_json%critical%from_json(init_json%name//".json", path)
         else
         do i=1,size(only)
