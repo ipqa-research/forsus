@@ -78,7 +78,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="14.4% of total for source files.">18 statements</a>
+                 title="14.0% of total for source files.">18 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -333,7 +333,7 @@ can be.
 <a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">   </span><span class="k">end type</span>
 <a id="ln-14" name="ln-14" href="#ln-14"></a>
 <a id="ln-15" name="ln-15" href="#ln-15"></a><span class="k">   abstract interface</span>
-<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="k">      subroutine </span><span class="n">abs_from_json</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">)</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="k">      impure elemental subroutine </span><span class="n">abs_from_json</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">)</span>
 <a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">         </span><span class="c">!! How a Property reader routine is espected to work.</span>
 <a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">         </span><span class="c">!!</span>
 <a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">         </span><span class="c">!! A Property should be setted up by providing it&#39;s name and a </span>
@@ -346,7 +346,7 @@ can be.
 <a id="ln-26" name="ln-26" href="#ln-26"></a><span class="w">         </span><span class="c">!!</span>
 <a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">         </span><span class="c">!! An example implementation can be seen at [scalar_from_json(subroutine)]</span>
 <a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">         </span><span class="k">import </span><span class="n">Property</span>
-<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">         </span><span class="k">class</span><span class="p">(</span><span class="n">Property</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="c">!! Property</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">         </span><span class="k">class</span><span class="p">(</span><span class="n">Property</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="w"> </span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="c">!! Property</span>
 <a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="c">!! Property&#39;s name (`json` key)</span>
 <a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">json_str</span><span class="w"> </span><span class="c">!! `json` file path</span>
 <a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">         </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="c">!! Optional database path</span>
@@ -371,7 +371,7 @@ can be.
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-07 21:19              </p>
+ on 2024-03-08 14:34              </p>
           </div>
         </div>
         <br>

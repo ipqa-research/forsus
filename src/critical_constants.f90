@@ -3,10 +3,11 @@ module forsus_properties_critical_constants
    implicit none
    
    type :: CriticalConstants
-      type(ScalarProperty) :: critical_pressure !! Critical Pressure
-      type(ScalarProperty) :: critical_temperature !! Critical Temperature
-      type(ScalarProperty) :: critical_volume !! Critical Volume
-      type(ScalarProperty) :: acentric_factor !! Acentric Factor
+      !! Critical constants
+      type(ScalarProperty) :: critical_pressure !! Critical Pressure [Pa]
+      type(ScalarProperty) :: critical_temperature !! Critical Temperature [K]
+      type(ScalarProperty) :: critical_volume !! Critical Volume [m3/kmol == L/mol]
+      type(ScalarProperty) :: acentric_factor !! Acentric Factor [adim]
    contains
       procedure :: from_json
    end type

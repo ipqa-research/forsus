@@ -15,10 +15,10 @@ module forsus_properties_scalar
 
 contains
 
-    subroutine scalar_from_json(self, name, json_str, path)
+    impure elemental subroutine scalar_from_json(self, name, json_str, path)
         !! Setup a scalar property from a provided json key and json file path.
         use iso_fortran_env, only: error_unit
-        class(ScalarProperty) :: self
+        class(ScalarProperty), intent(in out) :: self
         character(len=*), intent(in) :: name
             !! Property name. Should be the key in the `json` file.
         character(len=*), intent(in) :: json_str

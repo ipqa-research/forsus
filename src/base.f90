@@ -13,7 +13,7 @@ module forsus_properties_base
    end type
 
    abstract interface
-      subroutine abs_from_json(self, name, json_str, path)
+      impure elemental subroutine abs_from_json(self, name, json_str, path)
          !! How a Property reader routine is espected to work.
          !!
          !! A Property should be setted up by providing it's name and a 
@@ -26,7 +26,7 @@ module forsus_properties_base
          !!
          !! An example implementation can be seen at [scalar_from_json(subroutine)]
          import Property
-         class(Property) :: self !! Property
+         class(Property), intent(in out) :: self !! Property
          character(len=*), intent(in) :: name !! Property's name (`json` key)
          character(len=*), intent(in) :: json_str !! `json` file path
          character(len=*), optional, intent(in) :: path !! Optional database path
