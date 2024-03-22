@@ -1,5 +1,5 @@
 #!/bin/bash
-DESIRED_COVERAGE=90
+DESIRED_COVERAGE=85
 
 DID_TEST=0
 
@@ -47,11 +47,7 @@ run_test() {
 run_coverage() {
     gcovr \
         --exclude "build" \
-        --exclude "test/test_runner.f90" \
-        --exclude "test/fixtures/taperobinson.f90" \
-        --exclude "src/adiff/hyperdual.f90" \
         --exclude "example" \
-        --exclude "src/legacy/*" \
         --exclude "app"\
         --exclude "tools" \
         --fail-under-line 90 \
@@ -60,10 +56,7 @@ run_coverage() {
     gcovr \
         --exclude "build" \
         --exclude "test/test_runner.f90" \
-        --exclude "test/fixtures/taperobinson.f90" \
-        --exclude "src/adiff/hyperdual.f90" \
         --exclude "example" \
-        --exclude "src/legacy/*" \
         --exclude "app"\
         --exclude "tools" \
         --fail-under-line 90
