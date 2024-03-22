@@ -50,7 +50,7 @@ run_coverage() {
         --exclude "example" \
         --exclude "app"\
         --exclude "tools" \
-        --fail-under-line 90 \
+        --fail-under-line $DESIRED_COVERAGE \
         --jacoco coverage.xml
     
     gcovr \
@@ -59,7 +59,7 @@ run_coverage() {
         --exclude "example" \
         --exclude "app"\
         --exclude "tools" \
-        --fail-under-line 90
+        --fail-under-line $DESIRED_COVERAGE
 }
 
 resumee() {
