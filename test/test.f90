@@ -53,6 +53,5 @@ contains
     end subroutine
 
     subroutine test_failed_read
-
     end subroutine
 end program
