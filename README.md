@@ -2,7 +2,7 @@
 [![fpm](https://img.shields.io/badge/fpm-Fortran_package_manager-734f96)](https://fpm.fortran-lang.org)
 [![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://ipqa-research.github.io/forsus/)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://github.com/ipqa-research/forsus/blob/main/LICENSE)
-[![CI](https://github.com/fedebenelli/forsus/actions/workflows/CI.yml/badge.svg)](https://github.com/ipqa-research/forsus/actions/workflows/CI.yml)
+[![CI](https://github.com/ipqa-research/forsus/actions/workflows/CI.yml/badge.svg)](https://github.com/ipqa-research/forsus/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/ipqa-research/forsus/graph/badge.svg?token=yQGaGgmOzb)](https://codecov.io/gh/ipqa-research/forsus)
 
 # forsus
