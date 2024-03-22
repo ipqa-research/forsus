@@ -54,6 +54,13 @@ jobs:
   test:
     needs: Build
     runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        gcc_v: [10] # Version of GFortran we want to use.
+        python-version: [3.9]
+    
     steps:
     - name: Run tests
       run: |
