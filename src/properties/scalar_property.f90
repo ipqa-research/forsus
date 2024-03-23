@@ -43,7 +43,7 @@ contains
 
         if (json%failed()) then
             write(error_unit, *) "ERROR: Invalid .json file: ", json_str
-            call exit(1)
+            error stop 1
         end if
 
         call json%get(self%name//".value(1)", self%value)

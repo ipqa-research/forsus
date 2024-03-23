@@ -49,7 +49,7 @@ contains
       write (*, "(A)", advance="no") name
       if (abs((value - calc_value)/value) > tolerance) then
          print *, "Error!"
-         call exit(1)
+         error stop 1
       else
          print *, "Ok!"
       end if
@@ -65,8 +65,9 @@ contains
             exitstat=exitstat, &
             cmdstat=cmdstat, &
             cmdmsg=cmdmsg)
-         if (exitstat /= 1) call exit(1)
+         if (exitstat /= 1) error stop 1
       else
+         print *, "Should fail:"
          sus = Substance("fai")
       end if
    end subroutine
