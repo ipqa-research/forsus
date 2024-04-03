@@ -1,5 +1,5 @@
 module forsus_substance
-    use forsus_properties, only: ScalarProperty, CriticalConstants
+    use forsus_properties, only: ScalarProperty, CriticalConstants, Groups
     implicit none
 
     type :: Substance
@@ -65,6 +65,8 @@ module forsus_substance
             !! Parachor
         type(ScalarProperty) :: mathiascopeman(3)
             !! Mathias Copeman \(\alpha\) function parameters
+        type(Groups) :: unifac_vle
+            !! UNIFAC-VLE model groups
     end type
 
     ! Setting this interface allows to use `init_json` as the object init
@@ -85,16 +87,20 @@ contains
             !! Only extract this parameters, the options are:
             !!
             !! - "critical": Tc, Pc and Acentric Factor
-
+        
+        character(len=:), allocatable :: file
         integer :: i
 
         init_json%name = trim(name)
+        file = init_json%name // ".json"
+
         if (.not. present(only)) then
-            call init_json%parachor%from_json("Parachor", init_json%name//".json", path)
-            call init_json%mathiascopeman(1)%from_json("MatthiasCopemanC1", init_json%name//".json", path)
-            call init_json%mathiascopeman(2)%from_json("MatthiasCopemanC2", init_json%name//".json", path)
-            call init_json%mathiascopeman(3)%from_json("MatthiasCopemanC3", init_json%name//".json", path)
-            call init_json%critical%from_json(init_json%name//".json", path)
+            call init_json%parachor%from_json("Parachor", file, path)
+            call init_json%mathiascopeman(1)%from_json("MatthiasCopemanC1", file, path)
+            call init_json%mathiascopeman(2)%from_json("MatthiasCopemanC2", file, path)
+            call init_json%mathiascopeman(3)%from_json("MatthiasCopemanC3", file, path)
+            call init_json%unifac_vle%from_json("UnifacVLE", file, path)
+            call init_json%critical%from_json(file, path)
         else
         do i=1,size(only)
             select case(only(i))

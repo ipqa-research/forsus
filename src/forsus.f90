@@ -4,5 +4,5 @@ module forsus
     use forsus_properties
     use forsus_substance
 
-    character(len=*), parameter :: version = "0.1.0"
+    character(len=*), parameter :: version = "0.1.1"
 end module

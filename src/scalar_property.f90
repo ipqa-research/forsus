@@ -1,6 +1,6 @@
 module forsus_properties_scalar
     use forsus_constants, only: pr, forsus_default_dir, forsus_dir
-    use forsus_properties_base, only: Property
+    use forsus_properties_base, only: Property, open_json
     use json_module, only: json_file
     implicit none
 
@@ -29,6 +29,8 @@ contains
         type(json_file) :: json
 
         self%name = name
+
+        json = open_json(json_str, path)
         call json%initialize()
 
         if (present(path)) then
@@ -39,11 +41,6 @@ contains
             else
                 call json%load_file(forsus_default_dir//"/"//json_str)
             end if
-        end if
-
-        if (json%failed()) then
-            write(error_unit, *) "ERROR: Invalid .json file: ", json_str
-            error stop 1
         end if
 
         call json%get(self%name//".value(1)", self%value)
