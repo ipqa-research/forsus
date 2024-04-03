@@ -1,8 +1,11 @@
 program main
   use forsus, only: Substance, forsus_dir
 
+  use forsus_properties_groups, only: Groups
+
   type(Substance) :: sus(2)
   character(len=50) :: only_this(3)
+  type(Groups) :: group
 
   forsus_dir = "data/json"
 
@@ -21,5 +24,10 @@ program main
   print *, sus(1)%critical%critical_pressure%units
   print *, sus(1)%critical%critical_temperature%units
   print *, sus(1)%critical%critical_volume%units
+
+  call group%from_json("UnifacVLE", "1-butanol.json")
+
+  print *, group%ids
+  print *, group%counts
 
 end program
