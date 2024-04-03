@@ -32,6 +32,8 @@ contains
       call test(1.3327_pr, sus%mathiascopeman(1)%value, "MathiasCopemanC1")
       call test(0.96946_pr, sus%mathiascopeman(2)%value, "MathiasCopemanC2")
       call test(-3.1879_pr, sus%mathiascopeman(3)%value, "MathiasCopemanC3")
+      call test_int([1, 2, 15], sus%unifac_vle%ids, "UNIFAC-VLE ids")
+      call test_int([1, 1, 1], sus%unifac_vle%counts, "UNIFAC-VLE counts")
    end subroutine
 
    subroutine test_critical
@@ -48,6 +50,20 @@ contains
 
       write (*, "(A)", advance="no") name
       if (abs((value - calc_value)/value) > tolerance) then
+         print *, "Error!"
+         error stop 1
+      else
+         print *, "Ok!"
+      end if
+   end subroutine
+   
+   subroutine test_int(value, calc_value, name)
+      integer, intent(in) :: value(:)
+      integer, intent(in) :: calc_value(:)
+      character(len=*), intent(in) :: name
+
+      write (*, "(A)", advance="no") name
+      if (maxval(abs((value - calc_value)/value)) > tolerance) then
          print *, "Error!"
          error stop 1
       else
