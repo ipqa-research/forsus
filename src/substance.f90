@@ -42,7 +42,7 @@ module forsus_substance
         !! sus = Substance("1-butanol", path="the/json/is/here/")
         !! ```
         !!
-        !! ### Extracting limited information
+        !! ### Extracting only specific information
         !!
         !! ```fortran
         !! use forsus, only: Substance
@@ -57,6 +57,14 @@ module forsus_substance
         !! only_these(3) = "mathiascopeman"
         !! sus = Substance("1-butanol", only=only_these)
         !! ```
+        !!
+        !! The available parameters to single extraction are:
+        !!
+        !! - "critical": Tc, Pc and Acentric Factor
+        !! - "unifac_vle": UNIFAC-VLE (Original UNIFAC) parameters
+        !! - "parachor": Parachor
+        !! - "mathiascopeman": Mathias Copeman \(\alpha\) function
+        !!   parameters
         character(len=:), allocatable :: name 
             !! Substance name
         type(CriticalConstants) :: critical
@@ -87,6 +95,10 @@ contains
             !! Only extract this parameters, the options are:
             !!
             !! - "critical": Tc, Pc and Acentric Factor
+            !! - "unifac_vle": UNIFAC-VLE (Original UNIFAC) parameters
+            !! - "parachor": Parachor
+            !! - "mathiascopeman": Mathias Copeman \(\alpha\) function
+            !!   parameters
         
         character(len=:), allocatable :: file
         integer :: i
@@ -95,20 +107,27 @@ contains
         file = init_json%name // ".json"
 
         if (.not. present(only)) then
+            call init_json%critical%from_json(file, path)
+            call init_json%unifac_vle%from_json("UnifacVLE", file, path)
             call init_json%parachor%from_json("Parachor", file, path)
             call init_json%mathiascopeman(1)%from_json("MatthiasCopemanC1", file, path)
             call init_json%mathiascopeman(2)%from_json("MatthiasCopemanC2", file, path)
             call init_json%mathiascopeman(3)%from_json("MatthiasCopemanC3", file, path)
-            call init_json%unifac_vle%from_json("UnifacVLE", file, path)
-            call init_json%critical%from_json(file, path)
         else
         do i=1,size(only)
-            select case(only(i))
+            select case(trim(only(i)))
             case("critical")
                 call init_json%critical%from_json(init_json%name//".json", path)
+            case("unifac_vle")
+                call init_json%unifac_vle%from_json("UnifacVLE", file, path)
+            case("mathiascopeman")
+                call init_json%mathiascopeman(1)%from_json("MatthiasCopemanC1", file, path)
+                call init_json%mathiascopeman(2)%from_json("MatthiasCopemanC2", file, path)
+                call init_json%mathiascopeman(3)%from_json("MatthiasCopemanC3", file, path)
+            case("parachor")
+                call init_json%parachor%from_json("Parachor", file, path)
             end select
         end do
         end if
-
     end function
 end module
