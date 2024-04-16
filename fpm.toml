@@ -1,9 +1,12 @@
 name = "forsus"
-version = "0.1.0"
-license = "license"
+version = "0.1.1"
+license = "LICENCE"
 author = "Federico E. Benelli"
 maintainer = "federico.benelli@mi.unc.edu.ar"
 copyright = "Copyright 2024, Federico E. Benelli"
+categories = ["thermodynamic", "chemistry", "properties"]
+keywords = ["equation of state", "thermodyanmics", "substances", "properties"]
+homepage = "https://ipqa-research.github.io/forsus"
 
 [build]
 auto-executables = true
@@ -21,3 +24,7 @@ source-form = "free"
 
 [dependencies]
 json-fortran = {git = "https://github.com/jacobwilliams/json-fortran" }
+
+[preprocess]
+[preprocess.cpp]
+macros=['VERSION=\"0.1.1\"']

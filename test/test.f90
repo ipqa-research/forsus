@@ -1,8 +1,10 @@
 program main
-   use forsus, only: Substance, pr, forsus_dir
+   use forsus, only: Substance, pr, forsus_dir, version
    implicit none
    real(pr) :: tolerance = 1e-4
    type(Substance) :: sus
+
+   print *, "ForSus version: ", version
 
    call test_failed_read
 
@@ -16,11 +18,28 @@ program main
    sus = Substance("ethanol")
    call test_values
 
-   sus = Substance("ethanol", only=["critical"])
-   call test_critical
-
+   call test_only
 
 contains
+
+   subroutine test_only
+      integer :: i
+
+      sus = Substance("ethanol", only=["critical"])
+      call test_critical
+
+      sus = Substance("ethanol", only=["unifac_vle"])
+      call test_int([1, 2, 15], sus%unifac_vle%ids, "UNIFAC-VLE ids")
+      call test_int([1, 1, 1], sus%unifac_vle%counts, "UNIFAC-VLE counts")
+
+      sus = Substance("ethanol", only=["mathiascopeman"])
+      call test(1.3327_pr, sus%mathiascopeman(1)%value, "MathiasCopemanC1")
+      call test(0.96946_pr, sus%mathiascopeman(2)%value, "MathiasCopemanC2")
+      call test(-3.1879_pr, sus%mathiascopeman(3)%value, "MathiasCopemanC3")
+
+      sus = Substance("ethanol", only=["parachor"])
+      call test(2.2601e-2_pr, sus%parachor%value, "Parachor")
+   end subroutine
 
    subroutine test_values
       ! =============================================================================
